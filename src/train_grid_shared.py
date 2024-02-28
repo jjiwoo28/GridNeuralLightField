@@ -130,10 +130,10 @@ class nlf_grid_padding(train):
         Timer.start()
 
         for epoch in range(start_epoch,start_epoch+self.epoch_num+1):
-            print(f"epoch = {epoch}")
+            #print(f"epoch = {epoch}")
             self.losses = AverageMeter()
             for network_index, (network, optimizer , scheduler) in enumerate(zip(self.model.networks, self.model.optimizers , self.model.schedulers)):
-                print(f"network_index = {network_index}")
+                #print(f"network_index = {network_index}")
                 grid_v = network_index % self.grid_n
                 grid_h = network_index // self.grid_n
 

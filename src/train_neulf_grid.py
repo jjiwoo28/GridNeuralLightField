@@ -314,24 +314,24 @@ class train():
         Timer.start()
 
         for epoch in range(start_epoch,start_epoch+self.epoch_num+1):
-            print(f"epoch = {epoch}")
+            #print(f"epoch = {epoch}")
             self.losses = AverageMeter()
             for network_index, (network, optimizer , scheduler) in enumerate(zip(self.model.networks, self.model.optimizers , self.model.schedulers)):
-                print(f"network_index = {network_index}")
+                #print(f"network_index = {network_index}")
                 grid_v = network_index % self.grid_n
                 grid_h = network_index // self.grid_n
 
                 self.uvst_train_gpu = torch.tensor(np.reshape(self.uvst_train[grid_h, grid_v,:,:,:,:],(-1,self.input_dim))).float()
                 self.rgb_train_gpu = torch.tensor(np.reshape(self.rgb_train[grid_h, grid_v,:,:,:,:],(-1,3))).float()
 
-                print(f"network_index = {network_index} , cpu 2 gpu")
+                #print(f"network_index = {network_index} , cpu 2 gpu")
 
                  
                 self.losses_batch = AverageMeter()
                 
 
                 network.train()
-                print(f"network_index = {network_index} ,network.train()")
+                #print(f"network_index = {network_index} ,network.train()")
                 self.step_count +=1
 
                 perm = torch.randperm(self.split_whole_size)
