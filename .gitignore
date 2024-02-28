@@ -1,0 +1,11 @@
+data/
+data_self/
+dataset/*/sparse/
+dataset/*/*.npy
+result/
+src/tensorboard/
+demo_result_rgb/
+temp/
+*.npy
+*.sh
+
