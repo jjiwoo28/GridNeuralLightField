@@ -1,7 +1,6 @@
 data/
 data_self/
-dataset/*/sparse/
-dataset/*/*.npy
+dataset/*
 result/
 src/tensorboard/
 demo_result_rgb/
