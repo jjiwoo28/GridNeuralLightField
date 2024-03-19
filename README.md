@@ -27,3 +27,14 @@ padding 모드
 * --render_only 를 추가하면 학습을 진행하지 않고 video를 생성합니다.
 * --use_6D 를 추가하면 6D light field로 랜더링이 진행됩니다.
 * --load_epoch 을 통해 특정 epoch의 모델을 불러와 랜더링할 수 있습니다.
+
+# DynamicNeuralLightField
+### 전처리
+* 내부의 val_frames과 val_images를 수정한 후
+    python src/llffProcess_dy.py --data_dir dataset/knight
+* frame의 갯수만큼 pose와 uvst의 npy가 생성됩니다. (*용량주의*)
+### 학습
+    python src/train_neulf_dy.py --data_dir dataset/knight --exp_name knight
+### 랜더링
+* 내부의 렌더링 함수를 수정한 후
+    python src/demo_rgb_dy.py --load_exps dataset/knight --exp_name knight 
